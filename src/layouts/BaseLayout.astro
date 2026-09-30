@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = '月と星と空が好きな大人のための小さなセレクトメディア' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="月と星と空と ホーム">
+        <span class="brand-mark" aria-hidden="true">☾</span>
+        <span>月と星と空と</span>
+      </a>
+      <p>月と星と空が好きな大人のための小さなセレクトメディア</p>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>©月と星と空と</p>
+    </footer>
+  </body>
+</html>

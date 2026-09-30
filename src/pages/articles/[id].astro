@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles', ({ data }) => !data.draft);
+
+  return articles.map((article) => ({
+    params: { id: article.id },
+    props: { article },
+  }));
+}
+
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const publishedDate = article.data.publishedDate.toLocaleDateString('ja-JP');
+---
+
+<BaseLayout title={`${article.data.title}｜月と星と空と`} description={article.data.description}>
+  <article class="article-shell">
+    <header class="article-header">
+      <h1>{article.data.title}</h1>
+      <p class="article-date">公開日：{publishedDate}</p>
+    </header>
+
+    <div class="article-body">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>

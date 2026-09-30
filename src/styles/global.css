@@ -1,0 +1,343 @@
+:root {
+  --outer-bg: #101a2e;
+  --deep: #182641;
+  --surface: #faf8f3;
+  --text: #292d35;
+  --gold: #b89a5e;
+  --muted: #68758a;
+  color-scheme: light;
+  font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  color: var(--text);
+  background: var(--outer-bg);
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--outer-bg);
+  line-height: 1.85;
+}
+
+a {
+  color: inherit;
+}
+
+.site-header,
+.site-footer {
+  padding: 1.25rem clamp(1.25rem, 5vw, 4rem);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--gold);
+  background: var(--deep);
+  color: var(--surface);
+}
+
+.site-header p,
+.site-footer p {
+  margin: 0;
+  color: var(--surface);
+  font-size: 0.82rem;
+  opacity: 0.78;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.05em;
+}
+
+.brand-mark {
+  color: var(--gold);
+  font-size: 1.65rem;
+}
+
+.home-shell,
+.article-shell {
+  width: min(100% - 2rem, 880px);
+  margin: 0 auto;
+  background: var(--surface);
+}
+
+.home-shell {
+  padding: 5rem clamp(1.25rem, 6vw, 5rem);
+}
+
+.home-shell h1,
+.article-header h1 {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.article-list {
+  margin-top: 2.5rem;
+}
+
+.article-card {
+  padding: 1.5rem;
+  border: 1px solid color-mix(in srgb, var(--gold) 48%, var(--surface));
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--surface) 92%, white);
+}
+
+.article-card h2 {
+  margin: 0.35rem 0 0.7rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.article-shell {
+  padding: 4rem clamp(1.25rem, 6vw, 5rem) 6rem;
+}
+
+.article-header {
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--gold);
+}
+
+.article-header h1 {
+  margin: 0.65rem 0 1rem;
+  font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+}
+
+.article-date {
+  margin-top: 1.5rem;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.article-body {
+  width: min(100%, 720px);
+  margin: 3rem auto 0;
+}
+
+.article-body > p:first-child {
+  color: #854b50;
+}
+
+.article-body table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  table-layout: fixed;
+}
+
+.article-body table a {
+  color: #315d82;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.article-body table a:hover,
+.article-body table a:focus-visible {
+  color: #806732;
+}
+
+.article-body th,
+.article-body td {
+  padding: 0.8rem 0.9rem;
+  border: 1px solid color-mix(in srgb, var(--gold) 48%, var(--surface));
+  vertical-align: top;
+  text-align: left;
+}
+
+.article-body th {
+  background: color-mix(in srgb, var(--gold) 12%, var(--surface));
+  color: var(--deep);
+  font-weight: 700;
+}
+
+.article-body th:nth-child(1),
+.article-body td:nth-child(1) {
+  width: 38%;
+}
+
+.article-body th:nth-child(2),
+.article-body td:nth-child(2) {
+  width: 20%;
+}
+
+.article-body th:nth-child(3),
+.article-body td:nth-child(3) {
+  width: 42%;
+}
+
+.article-body table + p {
+  margin: 1.75rem 0 2.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, #854b50 7%, var(--surface));
+  font-size: 0.9rem;
+}
+
+.article-body table + p strong:first-child {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #854b50;
+}
+
+.article-body h2 {
+  margin: 4rem 0 1.25rem;
+  padding-bottom: 0.65rem;
+  scroll-margin-top: 7rem;
+  border-bottom: 1px solid var(--gold);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.55rem;
+  line-height: 1.55;
+}
+
+.article-body img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  margin: 1.25rem 0 1.75rem;
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+
+.article-body a[href*="hb.afl.rakuten.co.jp"] img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.article-body blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--gold);
+  background: color-mix(in srgb, var(--muted) 12%, var(--surface));
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.article-body blockquote p {
+  margin: 0;
+}
+
+.article-body .rakuten-text-cta {
+  margin: 0.5rem 0 1rem;
+}
+
+.article-body .rakuten-text-cta > a {
+  display: inline-block;
+  padding: 0.75rem 1.15rem;
+  border-radius: 999px;
+  background: var(--deep);
+  color: #fff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.article-body .rakuten-text-cta > a:hover {
+  background: var(--outer-bg);
+}
+
+.article-body .rakuten-text-cta > a:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.site-footer {
+  border-top: 1px solid var(--gold);
+  background: var(--deep);
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .site-header p {
+    line-height: 1.5;
+  }
+
+  .article-shell {
+    padding-top: 2.5rem;
+  }
+
+  .article-body table,
+  .article-body tbody,
+  .article-body tr,
+  .article-body td {
+    display: block;
+    max-width: 100%;
+  }
+
+  .article-body td:nth-child(1),
+  .article-body td:nth-child(2),
+  .article-body td:nth-child(3) {
+    width: 100%;
+  }
+
+  .article-body thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .article-body tr {
+    margin-bottom: 1rem;
+    border: 1px solid color-mix(in srgb, var(--gold) 48%, var(--surface));
+  }
+
+  .article-body td {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.65rem 0.75rem;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--gold) 28%, var(--surface));
+  }
+
+  .article-body td:last-child {
+    border-bottom: 0;
+  }
+
+  .article-body td::before {
+    color: var(--muted);
+    font-weight: 700;
+  }
+
+  .article-body td:nth-child(1)::before {
+    content: "アイテム";
+  }
+
+  .article-body td:nth-child(2)::before {
+    content: "参考価格（税込）";
+  }
+
+  .article-body td:nth-child(3)::before {
+    content: "こんな人に";
+  }
+
+}
