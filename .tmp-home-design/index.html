@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>CMFinds｜トップページ比較プレビュー</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 28px; background: #eeeae2; color: #292d35; font: 15px/1.7 "Yu Gothic", Meiryo, sans-serif; }
+    header { max-width: 1500px; margin: 0 auto 24px; }
+    h1 { margin: 0 0 8px; font-size: 24px; font-weight: 600; }
+    header p { margin: 0 0 16px; }
+    .controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    button { padding: 9px 16px; border: 1px solid #b89a5e; border-radius: 3px; background: transparent; color: #182641; font: inherit; cursor: pointer; }
+    button[aria-pressed="true"] { background: #182641; color: #faf8f3; border-color: #182641; }
+    button:focus-visible, a:focus-visible { outline: 2px solid #806732; outline-offset: 3px; }
+    .note { font-size: 13px; color: #586171; }
+    .comparison { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; max-width: 1500px; margin: auto; }
+    .option { min-width: 0; }
+    .option h2 { margin: 0; font-size: 18px; }
+    .option p { min-height: 48px; margin: 8px 0; font-size: 13px; }
+    .option a { display: inline-block; margin-bottom: 14px; color: #315d82; text-underline-offset: 3px; }
+    .viewport { position: relative; overflow: hidden; background: #101a2e; border: 1px solid #c9c2b5; }
+    iframe { display: block; border: 0; transform-origin: top left; position: absolute; top: 0; left: 0; }
+    @media(max-width:1000px) { .comparison { grid-template-columns: 1fr; max-width: 760px; } .option p { min-height: 0; } body { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>CMFinds トップページの比較</h1>
+    <p>同じ4記事・同じ順序・同じ配色で、文字と余白、枠の扱いを比較します。</p>
+    <div class="controls" aria-label="比較する画面幅">
+      <button type="button" data-width="1024" aria-pressed="true">PC幅 1024px</button>
+      <button type="button" data-width="390" aria-pressed="false">スマホ幅 390px</button>
+      <span class="note">縮小表示です。文字を詳しく見る場合は「単独で開く」を使ってください。各画面内をスクロールできます。</span>
+    </div>
+  </header>
+  <main class="comparison">
+    <section class="option">
+      <h2>I. 現状</h2><p>角丸の囲み枠が連続する、現在のトップページ。</p>
+      <a href="current.html" target="_blank" rel="noopener">単独で開く ↗</a>
+      <div class="viewport"><iframe src="current.html" title="現状のトップページ"></iframe></div>
+    </section>
+    <section class="option">
+      <h2>II. エディトリアル型</h2><p>枠を外し、番号・細い線・明朝体で構成。先頭記事の文字を大きくして、4記事に強弱をつけます。</p>
+      <a href="editorial.html" target="_blank" rel="noopener">単独で開く ↗</a>
+      <div class="viewport"><iframe src="editorial.html" title="エディトリアル型のトップページ"></iframe></div>
+    </section>
+    <section class="option">
+      <h2>III. 洗練カード型</h2><p>囲み枠は維持。角丸を小さく、枠を薄くし、カード間の余白と明朝体を整えます。</p>
+      <a href="refined.html" target="_blank" rel="noopener">単独で開く ↗</a>
+      <div class="viewport"><iframe src="refined.html" title="洗練カード型のトップページ"></iframe></div>
+    </section>
+  </main>
+  <script>
+    let width = 1024;
+    function resize() {
+      document.querySelectorAll('.viewport').forEach(box => {
+        const available = box.clientWidth;
+        const scale = Math.min(1, available / width);
+        const frame = box.querySelector('iframe');
+        frame.style.width = width + 'px';
+        frame.style.height = (width === 390 ? 1600 : 1250) + 'px';
+        frame.style.transform = `scale(${scale})`;
+        frame.style.left = Math.max(0, (available - width * scale) / 2) + 'px';
+        box.style.height = ((width === 390 ? 1600 : 1250) * scale) + 'px';
+      });
+    }
+    document.querySelectorAll('button[data-width]').forEach(button => button.addEventListener('click', () => {
+      width = Number(button.dataset.width);
+      document.querySelectorAll('button[data-width]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+      resize();
+    }));
+    new ResizeObserver(resize).observe(document.querySelector('.comparison'));
+    resize();
+  </script>
+</body>
+</html>

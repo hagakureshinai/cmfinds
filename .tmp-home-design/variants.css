@@ -1,0 +1,158 @@
+/* Temporary proposals only; the production stylesheet is not modified. */
+.preview-editorial .home-shell,
+.preview-refined .home-shell {
+  padding: 3.5rem clamp(1.5rem, 6vw, 4rem) 4rem;
+}
+.preview-editorial .home-shell h1,
+.preview-refined .home-shell h1 {
+  margin: 0 0 1rem;
+  color: var(--deep);
+  font-size: clamp(1.8rem, 3vw, 2.35rem);
+  letter-spacing: 0.06em;
+}
+.preview-editorial .home-intro,
+.preview-refined .home-intro {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.preview-editorial .article-list {
+  margin-top: 2.75rem;
+  border-top: 1px solid var(--outer-bg);
+}
+.preview-editorial .article-card {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 1.15rem;
+  padding: 1.85rem 0;
+  border: 0;
+  border-bottom: 1px solid var(--outer-bg);
+  border-radius: 0;
+  background: transparent;
+}
+.preview-editorial .selection-number {
+  padding-top: 0.3rem;
+  color: #806732;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.preview-editorial .article-card h2 {
+  margin: 0 0 0.8rem;
+  color: var(--deep);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.preview-editorial .article-card:first-child {
+  padding: 2.25rem 0;
+}
+.preview-editorial .article-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.95;
+}
+.preview-refined .article-card h2 a {
+  text-decoration: none;
+}
+.preview-editorial .article-card h2 a {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.preview-editorial .article-read-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 44px;
+  margin-top: 0.65rem;
+  padding: 0.25rem 0.35rem 0.25rem 0;
+  color: var(--deep);
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.preview-editorial .article-read-link:hover,
+.preview-editorial .article-card h2 a:hover {
+  text-decoration-color: var(--outer-bg);
+}
+.preview-editorial .article-read-link:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.preview-refined .article-card h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+}
+.preview-editorial .article-card h2 a:focus-visible,
+.preview-refined .article-card h2 a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+.preview-refined .article-list {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2.75rem;
+}
+.preview-refined .article-card {
+  padding: 1.65rem 1.85rem;
+  border-color: color-mix(in srgb, var(--gold) 32%, var(--surface));
+  border-radius: 0.25rem;
+  background: transparent;
+}
+.preview-refined .article-card h2 {
+  margin: 0 0 0.8rem;
+  color: var(--deep);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.preview-refined .article-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.95;
+}
+@media (max-width: 680px) {
+  .preview-editorial .home-shell,
+  .preview-refined .home-shell {
+    padding: 2.5rem 1.5rem 3rem;
+  }
+  .preview-editorial .article-list,
+  .preview-refined .article-list {
+    margin-top: 2rem;
+  }
+  .preview-editorial .article-card {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    column-gap: 0.65rem;
+    padding: 1.5rem 0;
+  }
+  .preview-editorial .article-card:first-child {
+    padding: 1.75rem 0;
+  }
+  .preview-editorial .selection-number {
+    font-size: 0.95rem;
+  }
+  .preview-editorial .article-card h2,
+  .preview-refined .article-card h2 {
+    font-size: 1.18rem;
+    line-height: 1.7;
+  }
+  .preview-editorial .article-card p,
+  .preview-refined .article-card p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+  .preview-refined .article-list {
+    gap: 1rem;
+  }
+  .preview-refined .article-card {
+    padding: 1.25rem;
+  }
+}
