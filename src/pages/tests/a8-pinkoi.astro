@@ -1,0 +1,163 @@
+---
+// Trusted, user-supplied A8.net snippets. Keep their contents unchanged.
+// set:html emits them at build time, bypassing Astro's script processing.
+const newAdCode = `<span class="a8ad 4AUfkKD-g7-vxOEc5O"></span><script type="text/javascript" src="//statics.a8.net/ad/ad.js"></script><script type="text/javascript">a8adscript('body').showAd({"req": {"mat":"4BEET1+D5BNH6+5BXG+BWGDT","alt":"商品リンク","id":"4AUfkKD-g7-vxOEc5O"},"goods": {"ejp":"h"+"ttps://jp.pinkoi.com/product/cDy3UPVN","imu":"h"+"ttps://cdn01.pinkoi.com/product/cDy3UPVN/6/1080x0.jpg"}});</script>`;
+const oldAdCode = `<a href="https://px.a8.net/svt/ejp?a8mat=4BEET1+D5BNH6+5BXG+BWGDT&a8ejpredirect=https%3A%2F%2Fjp.pinkoi.com%2Fproduct%2FcDy3UPVN" rel="nofollow">
+<img border="0" alt="" src="https://cdn01.pinkoi.com/product/cDy3UPVN/6/1080x0.jpg"></a>
+<img border="0" width="1" height="1" src="https://www16.a8.net/0.gif?a8mat=4BEET1+D5BNH6+5BXG+BWGDT" alt="">`;
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Pinkoi・A8.net 商品リンク表示検証 | CMFinds</title>
+    <script is:inline>
+      // Register before the untouched A8 scripts, so even synchronous failures are observed.
+      (() => {
+        let libraryState = '読込待ち（未完了の場合は遮断・通信障害などの可能性）';
+        const errors = [];
+        const failedImages = new WeakSet();
+
+        function write(id, value) {
+          const element = document.getElementById(id);
+          if (element && element.textContent !== value) element.textContent = value;
+        }
+
+        function imageState(selector) {
+          const images = Array.from(document.querySelectorAll(selector));
+          if (!images.length) return '画像要素なし';
+          return images.map((img) => {
+            if (failedImages.has(img) || (img.complete && !img.naturalWidth)) {
+              return '読込失敗（遮断・通信障害など。原因の確定には通信ログが必要）';
+            }
+            if (!img.complete) return '読込待ち';
+            const rect = img.getBoundingClientRect();
+            let hidden = rect.width === 0 || rect.height === 0;
+            for (let node = img; node; node = node.parentElement) {
+              const style = getComputedStyle(node);
+              hidden ||= style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0';
+            }
+            return `読込成功（${img.naturalWidth}×${img.naturalHeight}）${hidden ? '／CSS・配置により非表示' : '／配置あり（目視でも確認）'}`;
+          }).join('、');
+        }
+
+        function refresh() {
+          write('diagnostic-js', '動作中');
+          write('diagnostic-library', libraryState);
+          write('diagnostic-function', typeof window.a8adscript === 'function' ? '利用可能' : '未定義');
+          write('diagnostic-new-links', `${document.querySelectorAll('#new-ad a[href]').length} 個`);
+          write('diagnostic-new-image', imageState('#new-ad img:not([width="1"][height="1"])'));
+          write('diagnostic-old-image', imageState('#old-ad a img'));
+          write('diagnostic-tracker', imageState('#old-ad > img[width="1"][height="1"]'));
+          write('diagnostic-errors', errors.length ? errors.join('\n') : '検出なし（外部スクリプトの詳細が取得できない場合もあります）');
+        }
+
+        document.addEventListener('load', (event) => {
+          const target = event.target;
+          if (target instanceof HTMLScriptElement && target.src.includes('statics.a8.net/ad/ad.js')) {
+            libraryState = '読込完了（loadイベント受信）';
+          }
+          refresh();
+        }, true);
+
+        window.addEventListener('error', (event) => {
+          const target = event.target;
+          if (target instanceof HTMLScriptElement && target.src.includes('statics.a8.net/ad/ad.js')) {
+            libraryState = '読込失敗（errorイベント受信。遮断・通信障害など）';
+          } else if (target instanceof HTMLImageElement) {
+            failedImages.add(target);
+          } else if (event instanceof ErrorEvent) {
+            errors.push(`${event.message || 'Script error（詳細取得不可）'}${event.filename ? ` @ ${event.filename}:${event.lineno}` : ''}`);
+          }
+          refresh();
+        }, true);
+
+        document.addEventListener('securitypolicyviolation', (event) => {
+          errors.push(`CSPによる遮断: ${event.violatedDirective} / ${event.blockedURI}`);
+          refresh();
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const observer = new MutationObserver(refresh);
+          for (const id of ['new-ad', 'old-ad']) {
+            observer.observe(document.getElementById(id), {
+              childList: true, subtree: true, attributes: true,
+              attributeFilter: ['src', 'class', 'style', 'hidden'],
+            });
+          }
+          document.getElementById('refresh-diagnostics').addEventListener('click', refresh);
+          refresh();
+          setTimeout(refresh, 10000);
+        });
+        window.addEventListener('load', refresh);
+        window.addEventListener('pageshow', refresh);
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1>Pinkoi・A8.net 商品リンク表示検証</h1>
+      <p class="disclosure"><strong>広告・PR</strong>：このページにはA8.netを利用したPinkoiのアフィリエイト広告を掲載しています。リンク経由で購入された場合、CMFindsに報酬が発生することがあります。</p>
+      <p>同一商品（Pinkoiの商品ID：<code>cDy3UPVN</code>）の新形式・旧形式を比較する一時的な検証ページです。</p>
+
+      <section aria-labelledby="new-heading">
+        <h2 id="new-heading">新形式：JavaScriptによる商品リンク</h2>
+        <div id="new-ad" class="test-slot"><Fragment set:html={newAdCode} /></div>
+      </section>
+
+      <section aria-labelledby="old-heading">
+        <h2 id="old-heading">旧形式：HTMLによる商品リンク</h2>
+        <div id="old-ad" class="test-slot"><Fragment set:html={oldAdCode} /></div>
+        <p class="note">1×1ピクセルの計測用画像も公式コードのまま設置しています。商品画像とは別に状態を確認します。</p>
+      </section>
+
+      <section aria-labelledby="steps-heading">
+        <h2 id="steps-heading">iPhone Safariでの確認手順</h2>
+        <ol>
+          <li>コンテンツブロッカーをOFFにして再読み込みし、両形式の画像表示を確認する。</li>
+          <li>コンテンツブロッカーをONにして再読み込みし、両形式の画像表示を確認する。</li>
+          <li>OFF・ONのそれぞれで両形式の商品リンクをタップし、Pinkoiの商品ページ（商品ID：<code>cDy3UPVN</code>）へ遷移するか確認する。</li>
+        </ol>
+        <p class="note">ブロッカー名・設定、iOSのバージョン、画像表示とリンク遷移の結果を控えてください。再読み込み後、読込待ちの場合は少し待って状態を更新してください。</p>
+      </section>
+
+      <section aria-labelledby="diagnostics-heading">
+        <h2 id="diagnostics-heading">読込・実行状態</h2>
+        <noscript><p>JavaScriptが無効です。新形式と状態表示は動作しません。</p></noscript>
+        <dl>
+          <dt>検証用JavaScript</dt><dd id="diagnostic-js">未実行（変化しない場合はJavaScriptやCSPを確認）</dd>
+          <dt>A8.net ad.js</dt><dd id="diagnostic-library">未確認</dd>
+          <dt>a8adscript関数</dt><dd id="diagnostic-function">未確認</dd>
+          <dt>新形式の生成済みリンク</dt><dd id="diagnostic-new-links">未確認</dd>
+          <dt>新形式の商品画像</dt><dd id="diagnostic-new-image">未確認</dd>
+          <dt>旧形式の商品画像</dt><dd id="diagnostic-old-image">未確認</dd>
+          <dt>旧形式の1×1計測画像</dt><dd id="diagnostic-tracker">未確認</dd>
+          <dt>JavaScript・CSPエラー</dt><dd id="diagnostic-errors">未確認</dd>
+        </dl>
+        <button type="button" id="refresh-diagnostics">状態を更新</button>
+        <p class="note">ad.jsの読込失敗や関数の未定義は、外部スクリプトの遮断・通信障害などを調べる手掛かりです。読込完了でもリンクが生成されない場合は実行エラーを確認してください。画像の読込失敗と、読み込まれた画像がCSSで隠される場合は区別して表示します。</p>
+        <p class="note">この表示だけではブロッカーが原因と断定できません。必要に応じてSafariのWebインスペクタで通信・コンソールを確認してください。リンクの最終的な遷移先は手動で確認します。</p>
+      </section>
+    </main>
+  </body>
+</html>
+
+<style>
+  :global(html) { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #292d35; background: #f5f3ef; }
+  :global(body) { margin: 0; line-height: 1.8; }
+  main { width: min(880px, calc(100% - 2rem)); margin: 2rem auto; overflow-wrap: anywhere; }
+  h1 { font-size: clamp(1.4rem, 4vw, 2rem); line-height: 1.5; }
+  h2 { font-size: 1.2rem; line-height: 1.6; }
+  section { margin-top: 2rem; padding: 1.25rem; border: 1px solid #cec6b6; border-radius: 0.5rem; background: white; }
+  .disclosure { padding: 1rem; border-left: 4px solid #806732; background: #ebe5d8; }
+  .test-slot { min-height: 3rem; }
+  .test-slot :global(a img) { max-width: 100%; height: auto; }
+  .note { font-size: 0.9rem; color: #555; }
+  dt { margin-top: 0.75rem; font-weight: bold; }
+  dd { margin-left: 0; white-space: pre-wrap; }
+  ol { padding-left: 1.5rem; }
+  button { padding: 0.65rem 1rem; font: inherit; cursor: pointer; }
+</style>
