@@ -33,7 +33,7 @@ draft: false
 <a href="https://hb.afl.rakuten.co.jp/ichiba/5745813b.ff40bf3a.5745813c.e76c3cf8/_RTLink147957?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkm-select%2F20260124202846_9%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/5745813b.ff40bf3a.5745813c.e76c3cf8/?me_id=1397188&item_id=10094571&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fkm-select%2Fcabinet%2Fr_2022020144%2F20260124202846_9_5.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>
 
 **参考価格（税込）：2,485円**  
-**価格確認日：2026年9月9日**
+**価格確認日：2026年10月14日**
 
 ### 月の風景を、手紙と一緒に贈る
 
@@ -51,8 +51,8 @@ draft: false
 
 <a href="https://hb.afl.rakuten.co.jp/ichiba/57456f85.cf60ae3d.57456f86.53b56606/_RTLink147957?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fzakkashop%2F0050623%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/57456f85.cf60ae3d.57456f86.53b56606/?me_id=1198639&item_id=10021413&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fzakkashop%2Fcabinet%2Fimagebox75%2F0050623-9.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>
 
-**参考価格（税込）：2,816円**  
-**価格確認日：2026年9月9日**
+**参考価格（税込）：2,596円～2,816円**  
+**価格確認日：2026年10月14日**
 
 ### 夜空を思わせる、華やかな装丁を楽しむノート
 
@@ -79,7 +79,7 @@ draft: false
 <a href="https://hb.afl.rakuten.co.jp/ichiba/5745b904.dc6d0656.5745b905.707da99f/_RTLink147957?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fusagi-online%2Fre3027%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/5745b904.dc6d0656.5745b905.707da99f/?me_id=1386652&item_id=10064189&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fusagi-online%2Fcabinet%2Fitem%2F027%2Fre3027-01_1.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>
 
 **参考価格（税込）：2,750円**  
-**価格確認日：2026年9月9日**
+**価格確認日：2026年10月14日**
 
 ### 月と星を、毎日のセルフケアにも
 
@@ -100,7 +100,7 @@ draft: false
 <a href="https://hb.afl.rakuten.co.jp/ichiba/5744767b.fe90538b.5744767c.4d48cd5c/_RTLink147957?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fkamikaze%2Fhno-002%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/5744767b.fe90538b.5744767c.4d48cd5c/?me_id=1251475&item_id=10006877&pc=https%3A%2F%2Fthumbnail.image.rakuten.co.jp%2F%400_mall%2Fkamikaze%2Fcabinet%2Fhno%2Fhno-002_001.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>
 
 **参考価格（税込）：2,300円**  
-**価格確認日：2026年9月9日**
+**価格確認日：2026年10月14日**
 
 ### 毎日持ち歩けるものに、さりげなく星を
 
@@ -124,7 +124,7 @@ draft: false
 <a href="https://hb.afl.rakuten.co.jp/ichiba/5745bb8d.cab792b5.5745bb8e.ac160314/_RTLink147957?pc=https%3A%2F%2Fitem.rakuten.co.jp%2Fhoriku%2F2bup2wcnof%2F&link_type=pict&ut=eyJwYWdlIjoiaXRlbSIsInR5cGUiOiJwaWN0Iiwic2l6ZSI6IjQwMHg0MDAiLCJuYW0iOjEsIm5hbXAiOiJyaWdodCIsImNvbSI6MSwiY29tcCI6ImRvd24iLCJwcmljZSI6MCwiYm9yIjoxLCJjb2wiOjEsImJidG4iOjEsInByb2QiOjAsImFtcCI6ZmFsc2V9" target="_blank" rel="nofollow sponsored noopener" style="word-wrap:break-word;"><img src="https://hbb.afl.rakuten.co.jp/hgb/5745bb8d.cab792b5.5745bb8e.ac160314/?me_id=1426399&item_id=10305308&pc=https%3A%2F%2Fimage.rakuten.co.jp%2Fhoriku%2Fcabinet%2F0902%2F2bup2wcnof_1.jpg%3F_ex%3D400x400&s=400x400&t=pict" border="0" style="margin:2px" alt="" title=""></a>
 
 **参考価格（税込）：2,380円**  
-**価格確認日：2026年9月9日**
+**価格確認日：2026年10月14日**
 
 ### 星座と香りを、小さな灯りの中に
 
