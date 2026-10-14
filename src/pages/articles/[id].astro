@@ -18,7 +18,7 @@ interface Props {
 }
 
 const { article } = Astro.props;
-const isCompactIntro = article.id === 'night-sky-motif-interior';
+const isCompactIntro = ['night-sky-motif-interior', 'daily-moon-star-items', 'moon-star-gifts-for-adults', 'moon-star-gifts-3000-yen-women-30s'].includes(article.id);
 const { Content } = await render(article);
 const publishedDate = article.data.publishedDate.toLocaleDateString('ja-JP');
 ---
