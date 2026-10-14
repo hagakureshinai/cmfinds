@@ -266,6 +266,12 @@ a {
 }
 
 @media (max-width: 680px) {
+  /* スマホの記事タイトルと本文だけ、字間をわずかに狭める。 */
+  .article-header h1,
+  .article-body p {
+    letter-spacing: -0.01em;
+  }
+
   .site-header {
     align-items: flex-start;
     flex-direction: column;

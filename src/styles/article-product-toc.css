@@ -1,0 +1,117 @@
+/* 対象記事だけに適用する、B案の文字のみの目次。 */
+.article-intro-compact .article-body .product-index h2 {
+  margin: 1.5rem 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.article-intro-compact .article-body .product-index ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-intro-compact .article-body .product-index li {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.article-intro-compact .article-body .product-index li > a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 0;
+  padding: 0.4rem 0;
+  color: #315d82;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.article-intro-compact .article-body .product-index li > a:hover {
+  color: #806732;
+}
+
+.article-intro-compact .article-body .product-index a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* 表を撤去した後も、直後に置く価格・送料注意文の表示を維持する。 */
+.article-intro-compact .article-body .product-index + p {
+  margin: 1rem 0 2.5rem;
+  padding: 1rem 1.15rem;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, #854b50 7%, var(--surface));
+  font-size: 0.9rem;
+}
+
+.article-intro-compact .article-body .product-index + p strong:first-child {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #854b50;
+}
+
+/* 試作と同じ冒頭の余白。適用する記事にクラスを付けて有効化する。 */
+.article-shell.article-intro-compact {
+  padding-top: 1.5rem;
+}
+
+.article-intro-compact .article-header {
+  padding-bottom: 1rem;
+}
+
+.article-intro-compact .article-date {
+  margin: 0.75rem 0 0;
+}
+
+.article-intro-compact .article-body {
+  margin-top: 1rem;
+}
+
+/* 商品本文とCTAの間に置く、控えめな購入前の注意事項。 */
+.article-intro-compact .article-body .product-purchase-note {
+  margin: 1.5rem 0 1rem;
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--gold);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: color-mix(in srgb, var(--muted) 6%, var(--surface));
+  font-size: 0.9rem;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.article-intro-compact .article-body .product-purchase-note p {
+  margin: 0;
+}
+
+.article-intro-compact .article-body .product-purchase-note .product-purchase-note-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+  color: var(--deep);
+  font-weight: 700;
+}
+
+.article-intro-compact .article-body .product-purchase-note-icon {
+  display: inline-flex;
+  flex: 0 0 1.1rem;
+  align-items: center;
+  justify-content: center;
+  height: 1.1rem;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--muted);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+@media (max-width: 680px) {
+  .article-intro-compact .article-body > h2 {
+    /* スマホの固定ヘッダーに商品見出しが隠れないようにする。 */
+    scroll-margin-top: 10rem;
+  }
+}
