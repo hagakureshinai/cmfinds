@@ -1,0 +1,21 @@
+/* 新しい文房具記事にだけ適用する。既存記事のCTAは変更しない。 */
+.article-stationery .product-text-link {
+  margin: 1rem 0 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.article-stationery .product-text-link > a {
+  color: #315d82;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.article-stationery .product-text-link > a:hover {
+  color: #806732;
+}
+
+.article-stationery .product-text-link > a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+

@@ -103,7 +103,9 @@ a {
 }
 
 .article-shell {
-  padding: 4rem clamp(1.25rem, 6vw, 5rem) 6rem;
+  --article-padding-inline: clamp(1.25rem, 6vw, 5rem);
+  container-type: inline-size;
+  padding: 4rem var(--article-padding-inline) 6rem;
 }
 
 .article-header {
@@ -114,6 +116,11 @@ a {
 .article-header h1 {
   margin: 0.65rem 0 1rem;
   font-size: clamp(1.55rem, 3.4vw, 2.35rem);
+}
+
+/* グループ見出しがある記事は、スマホでもタイトルが最も大きくなるようにする。 */
+.article-shell:has(.article-section-heading) .article-header h1 {
+  font-size: clamp(1.95rem, 3.4vw, 2.35rem);
 }
 
 .article-date {
@@ -194,7 +201,9 @@ a {
   color: #854b50;
 }
 
-.article-body h2 {
+/* 商品名の装飾は、カテゴリ分けによる見出し階層の違いに関係なく共有する。 */
+.article-body h2,
+.article-body .product-heading {
   margin: 4rem 0 1.25rem;
   padding-bottom: 0.65rem;
   scroll-margin-top: 7rem;
@@ -202,6 +211,45 @@ a {
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
   font-size: 1.55rem;
   line-height: 1.55;
+}
+
+.article-body .product-heading {
+  overflow-wrap: anywhere;
+}
+
+/* カテゴリ見出し。目次の見出しには適用しない。 */
+.article-body .article-section-heading {
+  position: relative;
+  isolation: isolate;
+  padding: 0.85rem 0;
+  border: 0;
+  border-radius: 0;
+  color: var(--deep);
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+/* 本文の幅と文字位置を保ち、背景だけを記事エリアの左右端まで広げる。 */
+.article-body .article-section-heading::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 50%;
+  z-index: -1;
+  width: calc(100cqw + 2 * var(--article-padding-inline));
+  transform: translateX(-50%);
+  background: #C9AB70;
+  pointer-events: none;
+}
+
+.article-body .product-tagline {
+  margin: 1em 0;
+  font-size: 1.17em;
+  font-weight: 700;
+  /* 段落用のスマホ字間指定を受けず、従来のキャッチコピーの見た目を保つ。 */
+  letter-spacing: normal;
 }
 
 .article-body img {
@@ -266,6 +314,10 @@ a {
 }
 
 @media (max-width: 680px) {
+  .article-body .product-heading {
+    scroll-margin-top: 10rem;
+  }
+
   /* スマホの記事タイトルと本文だけ、字間をわずかに狭める。 */
   .article-header h1,
   .article-body p {
