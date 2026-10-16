@@ -20,13 +20,12 @@ interface Props {
 
 const { article } = Astro.props;
 const isStationery = article.id === 'moon-star-stationery';
-const isCompactIntro = isStationery || ['night-sky-motif-interior', 'daily-moon-star-items', 'moon-star-gifts-for-adults', 'moon-star-gifts-3000-yen-women-30s'].includes(article.id);
 const { Content } = await render(article);
 const publishedDate = article.data.publishedDate.toLocaleDateString('ja-JP');
 ---
 
 <BaseLayout title={`${article.data.title}｜月と星と空と`} description={article.data.description}>
-  <article class:list={['article-shell', { 'article-intro-compact': isCompactIntro, 'article-stationery': isStationery }]}>
+  <article class:list={['article-shell', 'article-intro-compact', { 'article-stationery': isStationery }]}>
     <header class="article-header">
       <h1>{article.data.title}</h1>
       <p class="article-date">公開日：{publishedDate}</p>

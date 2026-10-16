@@ -391,16 +391,4 @@ a {
     font-weight: 700;
   }
 
-  .article-body td:nth-child(1)::before {
-    content: "アイテム";
-  }
-
-  .article-body td:nth-child(2)::before {
-    content: "参考価格（税込）";
-  }
-
-  .article-body td:nth-child(3)::before {
-    content: "こんな人に";
-  }
-
 }

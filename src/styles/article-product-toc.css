@@ -1,4 +1,4 @@
-/* 対象記事だけに適用する、B案の文字のみの目次。 */
+/* 全記事共通の文字のみの目次。product-index のある箇所に適用する。 */
 .article-intro-compact .article-body .product-index h2 {
   margin: 1.5rem 0 0.75rem;
   font-size: 1.2rem;
@@ -53,7 +53,7 @@
   color: #854b50;
 }
 
-/* 試作と同じ冒頭の余白。適用する記事にクラスを付けて有効化する。 */
+/* 記事テンプレートが全記事に付ける article-intro-compact の共通余白。 */
 .article-shell.article-intro-compact {
   padding-top: 1.5rem;
 }
