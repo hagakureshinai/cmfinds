@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <title>星空の窓辺とインテリア（レイアウト検証用のオリジナルイラスト）</title>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1"><stop stop-color="#708a8e"/><stop offset="1" stop-color="#344d5c"/></linearGradient>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#cbb57e" opacity=".12"/></pattern>
+    <path id="spark" d="M0-11 2.5-2.5 11 0 2.5 2.5 0 11-2.5 2.5-11 0-2.5-2.5Z"/>
+  </defs>
+  <path fill="url(#ground)" d="M0 0h640v640H0z"/>
+  <path fill="url(#grain)" d="M0 0h640v640H0z"/>
+  <path d="M32 115V32h83M525 32h83v83M608 525v83h-83M115 608H32v-83" fill="none" stroke="#cbb57e" stroke-opacity=".35"/>
+  <path d="M178 446V218a142 142 0 0 1 284 0v228Z" fill="#122941" stroke="#a6b7b5" stroke-width="13"/>
+  <path d="M320 81v365M182 285h276" stroke="#a6b7b5" stroke-width="8"/>
+  <path d="M263 157a39 39 0 1 0 15 71 39 39 0 0 1-15-71" fill="#e0cf9c"/>
+  <g fill="#dbe2d3"><circle cx="365" cy="165" r="2"/><circle cx="414" cy="244" r="3"/><circle cx="356" cy="359" r="2"/><circle cx="251" cy="335" r="2"/><use href="#spark" x="388" y="208"/></g>
+  <path d="M95 474h450v17H95z" fill="#c1b38f"/><path d="M391 382h40l12 92h-64z" fill="#d9d5bd"/>
+  <g fill="none" stroke="#acc0af" stroke-width="4"><path d="m410 386-9-119m7 86 43-55m-48 42-34-41"/></g>
+  <g fill="#9ab3a6"><ellipse cx="395" cy="283" rx="9" ry="24" transform="rotate(-18 395 283)"/><ellipse cx="443" cy="307" rx="9" ry="24" transform="rotate(39 443 307)"/><ellipse cx="375" cy="307" rx="9" ry="22" transform="rotate(-37 375 307)"/></g>
+  <path d="M211 414h57v60h-57z" fill="#e4ddc4"/><path d="M239 414v-21" stroke="#c3ab76" stroke-width="2"/>
+  <path d="M239 390c-15-14-1-24 0-31 12 16 13 22 0 31" fill="#d5bb7c"/><path d="M110 551h418" stroke="#b7b69e" stroke-opacity=".4"/>
+</svg>

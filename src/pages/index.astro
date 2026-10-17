@@ -4,26 +4,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/home.css';
 
 const articles = await getCollection('articles', ({ data }) => !data.draft);
+// 更新日では並べ替えない。同じ公開日はslug、さらにidで順序を固定する。
+articles.sort((a, b) =>
+  b.data.publishedDate.getTime() - a.data.publishedDate.getTime()
+  || a.data.slug.localeCompare(b.data.slug, 'en')
+  || a.id.localeCompare(b.id, 'en')
+);
+
+// 試作用画像。記事本文やFrontmatterを変えず、ここで差し替えられる。
+const thumbnails: Record<string, string> = {
+  'daily-moon-star-items': '/images/home/thumbnails/daily-moon-star-items.webp',
+  'night-sky-motif-interior': '/images/home/thumbnails/night-sky-motif-interior.webp',
+  'moon-star-gifts-for-adults': '/images/home/thumbnails/moon-star-gifts-for-adults.svg',
+  'moon-star-gifts-3000-yen-women-30s': '/images/home/thumbnails/moon-star-gifts-3000-yen-women-30s.webp',
+  'moon-star-stationery': '/images/home/thumbnails/moon-star-stationery.svg',
+};
 ---
 
 <BaseLayout title="月と星と空と">
-  <section class="home-shell home-editorial">
-    <h1>月と星と空と</h1>
-    <p class="home-intro">月と星と空が好きな大人のための小さなセレクトメディア</p>
-
-    <div class="article-list">
-      {articles.map((article, index) => (
-        <article class="article-card">
-          <span class="selection-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-          <div class="article-copy">
-            <h2><a href={`/articles/${article.id}/`}>{article.data.title}</a></h2>
-            <p>{article.data.description}</p>
-            <a class="article-read-link" href={`/articles/${article.id}/`} aria-label={`記事を読む：${article.data.title}`}>
-              記事を読む<span aria-hidden="true">→</span>
+  <div class="home-sky">
+    <section class="home-grid-shell" aria-labelledby="latest-articles">
+      <h1 id="latest-articles">新着記事</h1>
+      <div class="home-article-grid">
+        {articles.map((article, index) => (
+          <article class="home-article-card">
+            <a class="home-card-link" href={`/articles/${article.id}/`}>
+              <img
+                src={thumbnails[article.data.slug] ?? '/images/home/thumbnails/default.svg'}
+                alt=""
+                width="640"
+                height="640"
+                loading={index < 2 ? 'eager' : 'lazy'}
+                decoding="async"
+              />
+              <h2>{article.data.title}</h2>
             </a>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
 </BaseLayout>

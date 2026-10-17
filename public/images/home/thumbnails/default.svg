@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <title>月と星の抽象モチーフ（レイアウト検証用のオリジナルイラスト）</title>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1"><stop stop-color="#12243a"/><stop offset="1" stop-color="#355464"/></linearGradient>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#cbb57e" opacity=".12"/></pattern>
+    <path id="spark" d="M0-11 2.5-2.5 11 0 2.5 2.5 0 11-2.5 2.5-11 0-2.5-2.5Z"/>
+  </defs>
+  <path fill="url(#ground)" d="M0 0h640v640H0z"/>
+  <path fill="url(#grain)" d="M0 0h640v640H0z"/>
+  <path d="M32 115V32h83M525 32h83v83M608 525v83h-83M115 608H32v-83" fill="none" stroke="#cbb57e" stroke-opacity=".35"/>
+  <circle cx="320" cy="320" r="192" fill="none" stroke="#bca779" stroke-opacity=".4"/>
+  <path d="M330 180a145 145 0 1 0 58 264 145 145 0 0 1-58-264" fill="#d3c18f"/>
+  <g fill="#ece2c5"><use href="#spark" x="435" y="209"/><use href="#spark" x="489" y="352"/><use href="#spark" x="167" y="148"/></g>
+</svg>

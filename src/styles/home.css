@@ -1,127 +1,132 @@
-/* Approved editorial homepage design, scoped to the homepage. */
-.home-shell.home-editorial h1 {
-  margin: 0 0 1rem;
-  color: var(--deep);
-  font-size: clamp(1.8rem, 3vw, 2.35rem);
-  letter-spacing: 0.06em;
+/* トップページ限定。試作の主な調整箇所はこの変数と列数。 */
+/* 固定背景を本文・ヘッダー・フッターの背面に置くための重なり範囲。 */
+body:has(.home-sky) {
+  isolation: isolate;
 }
 
-.home-editorial .home-intro {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.9rem;
+.home-sky {
+  --home-sky-image: url('/images/home/starfield.webp');
+  --home-sky-dim: 0.12;
+  --home-max-width: 1320px;
+  --home-gap: clamp(1rem, 2.5vw, 2.25rem);
+  --home-card-tint: color-mix(in srgb, var(--gold) 35%, var(--surface));
+  --home-card-background: color-mix(in srgb, var(--home-card-tint) 82%, transparent);
+  --home-card-border: var(--gold);
+  --home-title-size: 0.875rem;
+  min-height: 82svh;
+  color: var(--surface);
 }
 
-.home-editorial .article-list {
-  margin-top: 2.75rem;
-  border-top: 1px solid var(--outer-bg);
+/* background-attachment に頼らず、PC・スマホとも画面右下に固定。 */
+.home-sky::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-color: #0b1528;
+  background-image:
+    linear-gradient(rgb(9 19 33 / var(--home-sky-dim)), rgb(9 19 33 / var(--home-sky-dim))),
+    var(--home-sky-image);
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.home-editorial .article-card {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  column-gap: 1.15rem;
-  padding: 1.85rem 0;
-  border: 0;
-  border-bottom: 1px solid var(--outer-bg);
-  border-radius: 0;
-  background: transparent;
+.home-sky .home-grid-shell {
+  width: min(100%, var(--home-max-width));
+  margin-inline: auto;
+  padding: clamp(2rem, 5vw, 4rem) clamp(1rem, 4vw, 3.5rem) clamp(4rem, 8vw, 7rem);
 }
 
-.home-editorial .selection-number {
-  padding-top: 0.3rem;
-  color: #806732;
-  font-family: Georgia, serif;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-.home-editorial .article-card h2 {
-  margin: 0 0 0.8rem;
-  color: var(--deep);
+.home-sky h1 {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--gold);
   font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 1.35rem;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+}
+
+.home-sky .home-article-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--home-gap);
+  align-items: stretch;
+}
+
+.home-sky .home-article-card {
+  min-width: 0;
+  border: 1px solid var(--home-card-border);
+  border-radius: 0;
+  background: var(--home-card-background);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 12%);
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-sky .home-card-link {
+  display: block;
+  height: 100%;
+  color: var(--outer-bg);
+  text-decoration: none;
+}
+
+.home-sky .home-card-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 0;
+  background: #182b43;
+}
+
+.home-sky .home-card-link h2 {
+  margin: 0;
+  padding: 0.85rem 0.7rem 1rem;
+  font-size: var(--home-title-size);
   font-weight: 500;
   line-height: 1.65;
+  overflow-wrap: anywhere;
+  /* 省略・行数制限はせず、現行タイトルを全文表示する。 */
 }
 
-.home-editorial .article-card:first-child {
-  padding: 2.25rem 0;
-}
-
-.home-editorial .article-card p {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.95;
-}
-
-.home-editorial .article-card h2 a {
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 0.25em;
-  text-decoration-thickness: 1px;
-}
-
-.home-editorial .article-read-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  min-height: 44px;
-  margin-top: 0.65rem;
-  padding: 0.25rem 0.35rem 0.25rem 0;
-  color: var(--deep);
-  font-size: 0.85rem;
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 0.25em;
-  text-decoration-thickness: 1px;
-}
-
-.home-editorial .article-read-link:hover,
-.home-editorial .article-card h2 a:hover {
-  text-decoration-color: var(--outer-bg);
-}
-
-.home-editorial .article-read-link:focus-visible {
-  outline: 2px solid var(--gold);
+.home-sky .home-card-link:focus-visible {
+  outline: 3px solid #e0c18a;
   outline-offset: 4px;
 }
 
-.home-editorial .article-card h2 a:focus-visible {
-  outline: 2px solid var(--gold);
-  outline-offset: 4px;
+@media (hover: hover) and (pointer: fine) {
+  .home-sky {
+    --home-card-background: color-mix(in srgb, var(--home-card-tint) 64%, transparent);
+  }
+
+  .home-sky .home-article-card:hover {
+    background: color-mix(in srgb, var(--home-card-tint) 94%, transparent);
+    box-shadow: 0 12px 30px rgb(0 0 0 / 22%);
+  }
 }
 
+@media (min-width: 681px) {
+  .home-sky { --home-title-size: 1rem; }
+  .home-sky .home-card-link h2 { padding: 1.1rem 1.15rem 1.35rem; }
+}
+
+@media (min-width: 960px) {
+  .home-sky .home-article-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1280px) {
+  .home-sky .home-article-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+/* 同じ空の右側を切り出した軽量版。位置と濃淡はPC版につながる。 */
 @media (max-width: 680px) {
-.home-shell.home-editorial {
-    padding: 2.5rem 1.5rem 3rem;
-  }
+  .home-sky { --home-sky-image: url('/images/home/starfield-mobile.webp'); }
+}
 
-.home-editorial .article-list {
-    margin-top: 2rem;
-  }
-
-.home-editorial .article-card {
-    grid-template-columns: 1.5rem minmax(0, 1fr);
-    column-gap: 0.65rem;
-    padding: 1.5rem 0;
-  }
-
-.home-editorial .article-card:first-child {
-    padding: 1.75rem 0;
-  }
-
-.home-editorial .selection-number {
-    font-size: 0.95rem;
-  }
-
-.home-editorial .article-card h2 {
-    font-size: 1.18rem;
-    line-height: 1.7;
-  }
-
-.home-editorial .article-card p {
-    font-size: 0.9rem;
-    line-height: 1.9;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .home-sky .home-article-card { transition: none; }
 }

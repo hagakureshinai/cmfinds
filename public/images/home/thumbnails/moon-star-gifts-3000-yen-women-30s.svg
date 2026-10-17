@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <title>星飾りの小さな贈り物（レイアウト検証用のオリジナルイラスト）</title>
+  <defs>
+    <linearGradient id="ground" x2="1" y2="1"><stop stop-color="#316062"/><stop offset="1" stop-color="#163e49"/></linearGradient>
+    <pattern id="grain" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#cbb57e" opacity=".12"/></pattern>
+    <path id="spark" d="M0-11 2.5-2.5 11 0 2.5 2.5 0 11-2.5 2.5-11 0-2.5-2.5Z"/>
+  </defs>
+  <path fill="url(#ground)" d="M0 0h640v640H0z"/>
+  <path fill="url(#grain)" d="M0 0h640v640H0z"/>
+  <path d="M32 115V32h83M525 32h83v83M608 525v83h-83M115 608H32v-83" fill="none" stroke="#cbb57e" stroke-opacity=".35"/>
+  <ellipse cx="328" cy="523" rx="206" ry="25" fill="#0d303b" opacity=".45"/>
+  <path d="M156 294h322v218H156z" fill="#d9c99d"/><path d="M144 273h346v56H144z" fill="#efe4c4"/>
+  <path d="M289 273h48v239h-48z" fill="#648988"/><path d="M144 294h346" stroke="#bda873" stroke-width="2"/>
+  <g fill="none" stroke="#a2b9ac" stroke-width="12"><path d="M314 272c-170-24-136-142-61-85 30 24 61 85 61 85Z"/><path d="M314 272c154-7 138-120 69-82-38 21-69 82-69 82Z"/></g>
+  <path d="m364 327 43 21-40 81-43-21Z" fill="#f4eedb"/>
+  <path d="m367 354 6 15 17 2-13 11 4 17-15-9-15 8 4-17-12-12 17-1Z" fill="#b79a5c"/>
+  <path d="m350 301 19 37" stroke="#ede0ba" stroke-width="2"/>
+  <g fill="#d6c487"><use href="#spark" x="119" y="180"/><use href="#spark" x="510" y="214"/><circle cx="467" cy="121" r="3"/><circle cx="176" cy="120" r="2"/></g>
+</svg>
