@@ -63,8 +63,11 @@ a {
 }
 
 .brand-mark {
-  color: var(--gold);
-  font-size: 1.65rem;
+  display: block;
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
 }
 
 .home-shell,

@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import brandMark from '../assets/brand-mark.png';
 import '../styles/global.css';
 
 interface Props {
@@ -32,7 +34,7 @@ const { title, description = '月と星と空が好きな大人のための小�
   <body>
     <header class="site-header">
       <a class="brand" href="/" aria-label="月と星と空と ホーム">
-        <span class="brand-mark" aria-hidden="true">☾</span>
+        <Image class="brand-mark" src={brandMark} alt="" width={32} height={32} densities={[1, 2]} loading="eager" />
         <span>月と星と空と</span>
       </a>
       <p>月と星と空が好きな大人のための小さなセレクトメディア</p>

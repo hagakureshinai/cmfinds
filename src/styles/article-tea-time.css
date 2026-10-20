@@ -1,0 +1,63 @@
+/* ティータイム記事の複数画像を、種類名と組み合わせて並べる。 */
+.article-body .tea-time-variants {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.article-body .tea-time-variant {
+  min-width: 0;
+}
+
+.article-body .tea-time-variant-label {
+  margin: 0 0 0.75rem;
+  color: var(--deep);
+}
+
+/* 文房具記事と同じテキストCTAの見た目を、今回の記事だけに適用する。 */
+.article-body .tea-time-text-link {
+  margin: 1rem 0 1.5rem;
+  overflow-wrap: anywhere;
+}
+
+.article-body .tea-time-text-link > a {
+  color: #315d82;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.article-body .tea-time-text-link > a:hover {
+  color: #806732;
+}
+
+.article-body .tea-time-text-link > a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* A8が生成する商品画像を、共通画像スタイルで切り抜かない。 */
+.article-body .tea-time-a8-image img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+/* 公式タグは変えず、計測画像を本来の1×1pxで表示する。 */
+.article-body .tea-time-a8-cta > img[width="1"][height="1"] {
+  display: inline-block;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  border-radius: 0;
+  background: transparent;
+  aspect-ratio: auto;
+}
+
+@media (max-width: 680px) {
+  .article-body .tea-time-variants {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
