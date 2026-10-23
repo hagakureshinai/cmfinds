@@ -9,8 +9,15 @@ interface Props {
 }
 
 const { title, description = '月と星と空が好きな大人のための小さなセレクトメディア' } = Astro.props;
+const siteName = '月と星と空と';
 const canonicalPath = `${Astro.url.pathname.replace(/\/+$/, '')}/`;
 const canonicalURL = new URL(canonicalPath, Astro.site);
+const websiteStructuredData = Astro.url.pathname === '/' ? {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: siteName,
+  url: new URL('/', Astro.site).href,
+} : null;
 ---
 
 <!doctype html>
@@ -19,12 +26,17 @@ const canonicalURL = new URL(canonicalPath, Astro.site);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta property="og:site_name" content={siteName} />
     <meta name="p:domain_verify" content="efc0624ccb7c6a3ea236d1fb89801b66" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
     <title>{title}</title>
+    {websiteStructuredData && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteStructuredData)} />
+    )}
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-D86DS80CRL"></script>
     <script is:inline>
